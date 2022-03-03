@@ -1,2 +1,12 @@
 # Untrodden-Labs
-Task
+db.weather.aggregate(
+   [
+     {
+       $group:
+         {
+           _id: "$weather.sensorId",
+           tempAve: { $avg: "$temp" }
+         }
+     }
+   ]
+)
